@@ -11,11 +11,12 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged --debug"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*": "prettier --write"
+    "*.js": "eslint --fix",
+    "*.{js}": "prettier --write"
   },
   "repository": {
     "type": "git",

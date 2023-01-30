@@ -1,0 +1,31 @@
+{
+  "name": "fake-store-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nomanliaqatcs48/fake-store-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nomanliaqatcs48/fake-store-backend/issues"
+  },
+  "homepage": "https://github.com/nomanliaqatcs48/fake-store-backend#readme",
+  "devDependencies": {
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.3"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

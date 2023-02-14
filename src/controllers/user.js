@@ -60,8 +60,61 @@ module.exports.addUser = (req, res) => {
       });
       user
         .save()
-        .then((user) => res.json(user))
-        .catch((err) => res.status(400).send(err));
+        .then((user) =>
+          res.json({
+            error: false,
+            data: user,
+            message: "successfully user created",
+          })
+        )
+        .catch((err) =>
+          res.status(400).send({ error: true, message: err.message, data: {} })
+        );
     });
+  }
+};
+
+module.exports.updateUser = (req, res) => {
+  if (typeof req.body == undefined || req.params.id == null) {
+    res
+      .status(400)
+      .send({
+        error: true,
+        message: "something went wrong! check your sent data",
+      });
+  } else {
+    User.findOneAndUpdate({ id: req.params.id }, req.body, {
+      new: true,
+    })
+      .then((user) =>
+        res.json({
+          error: false,
+          data: user,
+          message: "successfully user updated",
+        })
+      )
+      .catch((err) =>
+        res.status(400).send({ error: true, message: err.message, data: {} })
+      );
+  }
+};
+
+module.exports.deleteUser = (req, res) => {
+  if (req.params.id == null) {
+    res
+      .status(400)
+      .send({ error: true, message: "user id should be provided" });
+  } else {
+    User.findOneAndDelete({ id: req.params.id })
+      .then((user) =>
+        res.json({
+          error: false,
+          data: user,
+          message: "successfully user deleted!",
+        })
+      )
+      .catch((err) =>
+        res.status(400).send({ error: true, message: err.message, data: {} })
+      );
   }
 };

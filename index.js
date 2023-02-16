@@ -1,7 +1,8 @@
-const mongoose = require("mongoose");
-const express = require("express");
-const userRoute = require("./src/routes/user");
-const productRoute = require("./src/routes/product");
+import mongoose from "mongoose";
+import express from "express";
+// import user from "./src/routes/user";
+import user from "./src/routes/user.js";
+// const productRoute = require("./src/routes/product");
 const app = express();
 const port = 3000;
 
@@ -11,8 +12,9 @@ app.get("/", (res) => {
   res.send("Test Response");
 });
 
-app.use("/users", userRoute);
-app.use("/products", productRoute);
+// app.use("/users", userRoute);
+app.use(user);
+// app.use("/products", productRoute);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
@@ -34,4 +36,4 @@ mongoose
     console.log("db error: ", err);
   });
 
-module.exports = app;
+export default app;

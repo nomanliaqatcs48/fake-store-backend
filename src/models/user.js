@@ -1,8 +1,7 @@
-const mongoose = require("mongoose");
-const validator = require("validator");
-const schema = mongoose.Schema;
+import mongoose from "mongoose";
+import validator from "validator";
 
-const userSchema = new schema({
+const userSchema = new mongoose.Schema({
   id: {
     type: Number,
     required: true,
@@ -53,4 +52,4 @@ const userSchema = new schema({
   phone: String,
 });
 
-module.exports = mongoose.model("user", userSchema);
+export default mongoose.model("user", userSchema);
